@@ -1,7 +1,7 @@
-import TaskForm from "./TaskForm";
-import TaskList from "./TaskList";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
 import { useEffect, useState } from "react";
-import { tasks as data } from "./tasks";
+import { tasks as data } from "./data/tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -10,12 +10,13 @@ function App() {
     setTasks(data);
   }, []);
 
-  function createTask(taskTitle) {
+  function createTask(task) {
     setTasks([
       ...tasks,
       {
-        title: taskTitle,
+        title: task.title,
         id: tasks.length,
+        description: task.description,
       },
     ]); //Valore que contiene el arreglo, valores nuevos que tendrá el arreglo
   }
