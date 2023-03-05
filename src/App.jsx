@@ -20,10 +20,15 @@ function App() {
       },
     ]); //Valore que contiene el arreglo, valores nuevos que tendrá el arreglo
   }
+
+  function deleteTask(taskId) {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  }
+
   return (
     <>
       <TaskForm createTask={createTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </>
   );
 }
